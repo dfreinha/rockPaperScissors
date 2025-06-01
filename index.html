@@ -22,13 +22,54 @@
         }
 
         function getHumanChoice () {
-            console.log("placeholder")
+            let answer = prompt("Rock, Paper, or Scissors - Enter other value to stop play")
+            return answer;
         }
 
-        console.log(getComputerChoice())
+        function whoWon(humanChoice,computerChoice) {
+            let winner;
+
+            if (humanChoice == computerChoice) {
+                winner = "Tie";
+            }
+            else if (humanChoice == "Rock" && computerChoice == "Paper"){
+                winner = "Computer";
+            }
+            else if (humanChoice == "Rock" && computerChoice == "Scissors"){
+                winner = "Human";
+            }
+            else if (humanChoice == "Paper" && computerChoice == "Rock"){
+                winner = "Human";
+            }
+            else if (humanChoice == "Paper" && computerChoice == "Scissors"){
+                winner = "Computer";
+            }
+            else if (humanChoice == "Scissors" && computerChoice == "Rock"){
+                winner = "Computer";
+            }
+            else if (humanChoice == "Scissors" && computerChoice == "Paper"){
+                winner = "Human";
+            }
+            else {
+                winner = "WTF";
+            }
+            return winner;
+        }
+
+        
+        let humanScore = 0;
+        let computerScore = 0;
+
+        let humanChoice = getHumanChoice();
+        let computerChoice = (getComputerChoice());
+
+        console.log(whoWon(humanChoice, computerChoice));
+
+
+        
     </script>
 </head>
 <body>
-    getComputerChoice()
+   
 </body>
 </html>
