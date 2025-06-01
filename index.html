@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getComputerChoice () { // function will return a string of either "rock" "paper" "scissors"
+            let choice;
+            switch (Math.floor(Math.random() * 3)) {
+                case 0:
+                    choice = "Rock";
+                    break;
+                case 1:
+                    choice = "Paper";
+                    break;
+                case 2:
+                    choice = "Scissors";
+                    break;
+            }
+            return choice;
+        }
+
+        function getHumanChoice () {
+            console.log("placeholder")
+        }
+
+        console.log(getComputerChoice())
+    </script>
+</head>
+<body>
+    getComputerChoice()
+</body>
+</html>
