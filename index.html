@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function getComputerChoice () { // function will return a string of either "rock" "paper" "scissors"
+        function getComputerChoice () { // function will return a string of either "Rock" "Paper" "Scissors"
             let choice;
             switch (Math.floor(Math.random() * 3)) {
                 case 0:
@@ -21,12 +21,12 @@
             return choice;
         }
 
-        function getHumanChoice () {
+        function getHumanChoice () { //function will return the human choice of either "Rock" "Paper" "Scissors" if other value entered game stops
             let answer = prompt("Rock, Paper, or Scissors - Enter other value to stop play")
             return answer;
         }
 
-        function findWhoWon(humanChoice,computerChoice, winner) {
+        function findWhoWon(humanChoice,computerChoice, winner) { // function will return the winner
             
 
             if (humanChoice == computerChoice) {
@@ -56,19 +56,14 @@
             return winner;
         }
 
-        function givePointToWinner(humanScore,computerScore,winner){
-
-            
-            
-            return h
-        }
+        
         
         let humanScore = 0;
         let computerScore = 0;
         let winner;
         let messageToUser;
 
-        while (winner != "Quit") {
+        while (winner != "Quit") { // main loop
 
             let humanChoice = getHumanChoice();
             let computerChoice = (getComputerChoice());
