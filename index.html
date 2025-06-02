@@ -26,8 +26,8 @@
             return answer;
         }
 
-        function whoWon(humanChoice,computerChoice) {
-            let winner;
+        function findWhoWon(humanChoice,computerChoice, winner) {
+            
 
             if (humanChoice == computerChoice) {
                 winner = "Tie";
@@ -51,19 +51,52 @@
                 winner = "Human";
             }
             else {
-                winner = "WTF";
+                winner = "Quit";
             }
             return winner;
         }
 
+        function givePointToWinner(humanScore,computerScore,winner){
+
+            
+            
+            return h
+        }
         
         let humanScore = 0;
         let computerScore = 0;
+        let winner;
+        let messageToUser;
 
-        let humanChoice = getHumanChoice();
-        let computerChoice = (getComputerChoice());
+        while (winner != "Quit") {
 
-        console.log(whoWon(humanChoice, computerChoice));
+            let humanChoice = getHumanChoice();
+            let computerChoice = (getComputerChoice());
+
+            winner = findWhoWon(humanChoice,computerChoice,winner);
+
+            if (winner == "Human"){
+                    humanScore++
+                }
+                else if (winner =="Computer"){
+                    computerScore++
+                }
+            
+            if (winner == "Human" || winner == "Computer"){
+            
+                messageToUser = "You selected " + humanChoice + " The computer selected " + computerChoice + "   " + winner + " has won, the score is now Human: " + humanScore + " Computer: " + computerScore;
+                console.log(messageToUser)
+            }       
+            else if (winner == "Tie"){
+                messageToUser = "You selected " + humanChoice + " The computer selected " + computerChoice + "  " + " it was a Tie!! " + "The score is now Human: " + humanScore + " Computer: " + computerScore;
+                console.log(messageToUser)
+            }
+
+            else{
+                messageToUser = "Thanks for playing. Final score was Human: " + humanScore + " Computer: " + computerScore;
+                console.log(messageToUser)
+            }
+        }
 
 
         
