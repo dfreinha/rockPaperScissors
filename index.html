@@ -4,100 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        function getComputerChoice () { // function will return a string of either "Rock" "Paper" "Scissors"
-            let choice;
-            switch (Math.floor(Math.random() * 3)) {
-                case 0:
-                    choice = "Rock";
-                    break;
-                case 1:
-                    choice = "Paper";
-                    break;
-                case 2:
-                    choice = "Scissors";
-                    break;
-            }
-            return choice;
+    <style>
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            text-align: center;
         }
-
-        function getHumanChoice () { //function will return the human choice of either "Rock" "Paper" "Scissors" if other value entered game stops
-            let answer = prompt("Rock, Paper, or Scissors - Enter other value to stop play")
-            return answer;
-        }
-
-        function findWhoWon(humanChoice,computerChoice, winner) { // function will return the winner
-            
-
-            if (humanChoice == computerChoice) {
-                winner = "Tie";
-            }
-            else if (humanChoice == "Rock" && computerChoice == "Paper"){
-                winner = "Computer";
-            }
-            else if (humanChoice == "Rock" && computerChoice == "Scissors"){
-                winner = "Human";
-            }
-            else if (humanChoice == "Paper" && computerChoice == "Rock"){
-                winner = "Human";
-            }
-            else if (humanChoice == "Paper" && computerChoice == "Scissors"){
-                winner = "Computer";
-            }
-            else if (humanChoice == "Scissors" && computerChoice == "Rock"){
-                winner = "Computer";
-            }
-            else if (humanChoice == "Scissors" && computerChoice == "Paper"){
-                winner = "Human";
-            }
-            else {
-                winner = "Quit";
-            }
-            return winner;
-        }
-
-        
-        
-        let humanScore = 0;
-        let computerScore = 0;
-        let winner;
-        let messageToUser;
-
-        while (winner != "Quit") { // main loop
-
-            let humanChoice = getHumanChoice();
-            let computerChoice = (getComputerChoice());
-
-            winner = findWhoWon(humanChoice,computerChoice,winner);
-
-            if (winner == "Human"){
-                    humanScore++
-                }
-                else if (winner =="Computer"){
-                    computerScore++
-                }
-            
-            if (winner == "Human" || winner == "Computer"){
-            
-                messageToUser = "You selected " + humanChoice + " The computer selected " + computerChoice + "   " + winner + " has won, the score is now Human: " + humanScore + " Computer: " + computerScore;
-                console.log(messageToUser)
-            }       
-            else if (winner == "Tie"){
-                messageToUser = "You selected " + humanChoice + " The computer selected " + computerChoice + "  " + " it was a Tie!! " + "The score is now Human: " + humanScore + " Computer: " + computerScore;
-                console.log(messageToUser)
-            }
-
-            else{
-                messageToUser = "Thanks for playing. Final score was Human: " + humanScore + " Computer: " + computerScore;
-                console.log(messageToUser)
-            }
-        }
-
-
-        
-    </script>
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-   
+    <button onclick="startGame()">Play Rock Paper Scissors</button>
+
+    <div id="scoreDisplay">Score: Human - 0 | Computer - 0</div>
+
+
+    <div id="popup">
+        <p>Choose one:</p>
+        <button onclick="displayChoice('Rock')">Rock</button>
+        <button onclick="displayChoice('Paper')">Paper</button>
+        <button onclick="displayChoice('Scissors')">Scissors</button>
+    </div>
 </body>
 </html>
